@@ -28,8 +28,8 @@ from pathlib import Path
 
 COMPUTE_TIER = os.environ.get("COMPUTE_TIER", "T4").upper()
 BASE_MODEL = (
-    "unsloth/Qwen2.5-3B-bnb-4bit" if COMPUTE_TIER == "T4"
-    else "unsloth/Qwen2.5-7B-bnb-4bit"
+    "unsloth/Qwen2.5-3B-Instruct-bnb-4bit" if COMPUTE_TIER == "T4"
+    else "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
 )
 MAX_LEN = 512 if COMPUTE_TIER == "T4" else 1024
 

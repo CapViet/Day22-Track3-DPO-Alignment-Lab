@@ -32,8 +32,8 @@ def main():
 
     tier = os.environ.get("COMPUTE_TIER", "T4").upper()
     base = (
-        "unsloth/Qwen2.5-3B-bnb-4bit" if tier == "T4"
-        else "unsloth/Qwen2.5-7B-bnb-4bit"
+        "unsloth/Qwen2.5-3B-Instruct-bnb-4bit" if tier == "T4"
+        else "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
     )
     max_len = 512 if tier == "T4" else 1024
 

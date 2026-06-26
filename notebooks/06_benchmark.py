@@ -76,7 +76,7 @@ import subprocess
 
 def run_lm_eval(adapter_path, tasks, limit, num_fewshot, label):
     """Run lm-eval-harness with PEFT adapter on top of base, return parsed metrics."""
-    base = "unsloth/Qwen2.5-3B-bnb-4bit" if COMPUTE_TIER == "T4" else "unsloth/Qwen2.5-7B-bnb-4bit"
+    base = "unsloth/Qwen2.5-3B-Instruct-bnb-4bit" if COMPUTE_TIER == "T4" else "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
     out_dir = EVAL_OUT / f"lm-{label}-{tasks}"
     cmd = [
         "lm_eval",
@@ -188,7 +188,7 @@ def generate_with_adapter(adapter_path, prompts, max_new_tokens=256):
     from unsloth import FastLanguageModel
     from peft import PeftModel
 
-    base = "unsloth/Qwen2.5-3B-bnb-4bit" if COMPUTE_TIER == "T4" else "unsloth/Qwen2.5-7B-bnb-4bit"
+    base = "unsloth/Qwen2.5-3B-Instruct-bnb-4bit" if COMPUTE_TIER == "T4" else "unsloth/Qwen2.5-7B-Instruct-bnb-4bit"
     max_len = 512 if COMPUTE_TIER == "T4" else 1024
 
     model, tokenizer = FastLanguageModel.from_pretrained(
